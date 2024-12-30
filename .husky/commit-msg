@@ -1,2 +1,0 @@
-# Enforce conventional commits on commit messages: https://www.conventionalcommits.org
-npx --no -- commitlint --edit $1
