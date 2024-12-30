@@ -20,6 +20,7 @@
 		"@types/react": "^19",
 		"@types/react-dom": "^19",
 		"lefthook": "^1.10.1",
-		"typescript": "^5"
+		"typescript": "^5",
+		"typescript-plugin-css-modules": "^5.1.0"
 	}
 }
