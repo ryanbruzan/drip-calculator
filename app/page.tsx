@@ -1,5 +1,7 @@
+import { Dashboard } from "@/components/Dashboard";
+
 const Page = () => {
-	return <p>Hello, world!</p>;
+	return <Dashboard />;
 };
 
 export default Page;
