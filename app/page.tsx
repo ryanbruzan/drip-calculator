@@ -1,7 +1,12 @@
+import ClientOnly from "@/components/ClientOnly";
 import { Dashboard } from "@/components/Dashboard";
 
 const Page = () => {
-	return <Dashboard />;
+	return (
+		<ClientOnly>
+			<Dashboard />
+		</ClientOnly>
+	);
 };
 
 export default Page;

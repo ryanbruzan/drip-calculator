@@ -1,3 +1,5 @@
+"use client";
+
 import { Chart } from "@/components/Chart";
 import { Form } from "@/components/Form";
 import { Table } from "@/components/Table";
