@@ -16,6 +16,7 @@ export const Form = ({ className }: Props) => {
 
 	return (
 		<div className={clsx(styles.form, className)}>
+			{/* Age */}
 			<div className={styles.row}>
 				<div className={styles.label}>
 					<div className={styles.labelTitle}>Age</div>
@@ -32,6 +33,8 @@ export const Form = ({ className }: Props) => {
 					<div className={styles.value}>{age.toLocaleString()}</div>
 				</div>
 			</div>
+
+			{/* Initial Balance */}
 			<div className={styles.row}>
 				<div className={styles.label}>
 					<div className={styles.labelTitle}>Initial Balance</div>
