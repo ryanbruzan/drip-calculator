@@ -59,5 +59,6 @@
 }
 
 .labelSubtitle {
+	font-size: 12px;
 	color: var(--color-foreground-50);
 }
