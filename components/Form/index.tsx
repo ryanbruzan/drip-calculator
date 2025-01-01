@@ -36,7 +36,7 @@ export const Form = ({ className }: Props) => {
 						min={18}
 						max={99}
 						value={age}
-						onValueChange={(v) => setAge(Number.parseInt(v))}
+						onValueChange={(v) => setAge(Number.parseInt(v) || 0)}
 					/>
 				</div>
 			</div>
@@ -55,7 +55,7 @@ export const Form = ({ className }: Props) => {
 						maxLength={16}
 						min={1}
 						value={initialBalance}
-						onValueChange={(v) => setInitialBalance(Number.parseInt(v))}
+						onValueChange={(v) => setInitialBalance(Number.parseInt(v) || 0)}
 					/>
 				</div>
 			</div>
