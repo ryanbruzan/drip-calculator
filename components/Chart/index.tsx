@@ -10,7 +10,7 @@ type Props = {
 export const Chart = ({ className }: Props) => {
 	return (
 		<div className={clsx(styles.chart, className)}>
-			<p>Chart</p>
+			{/* <p>Chart coming soon...</p> */}
 		</div>
 	);
 };

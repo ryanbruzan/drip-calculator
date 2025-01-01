@@ -1,4 +1,4 @@
-import "@/app/globals.css";
+import "@/assets/css/globals.css";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import type { ReactNode } from "react";
@@ -15,9 +15,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
 	return (
 		<html lang="en">
-			<body className={poppins.className}>
-				<main>{children}</main>
-			</body>
+			<body className={poppins.className}>{children}</body>
 		</html>
 	);
 }

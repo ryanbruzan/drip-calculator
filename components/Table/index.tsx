@@ -10,7 +10,7 @@ type Props = {
 export const Table = ({ className }: Props) => {
 	return (
 		<div className={clsx(styles.table, className)}>
-			<p>Table</p>
+			{/* <p>Table coming soon...</p> */}
 		</div>
 	);
 };

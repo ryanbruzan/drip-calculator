@@ -1,3 +1,5 @@
+@import url('./colors.css');
+
 :root {
 	--font-size: 14px;
 }
@@ -10,8 +12,8 @@
 
 html,
 body {
-	background-color: #1d1e22;
-	color: #fff;
+	background-color: var(--color-background-100);
+	color: var(--color-foreground-100);
 	padding: 0;
 	margin: 0;
 	font-size: var(--font-size);
@@ -19,8 +21,13 @@ body {
 	line-height: 1.8;
 }
 
-main {
-	width: 100%;
-	max-width: 1200px;
-	margin: 0 auto;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	margin: 0;
+	padding: 0;
 }
