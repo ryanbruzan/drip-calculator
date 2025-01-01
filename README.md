@@ -1,1 +1,1 @@
-<center>🚧 This project is under construction! 🚧</center>
+🚧 This project is under construction! 🚧
