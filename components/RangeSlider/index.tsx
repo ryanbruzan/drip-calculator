@@ -1,15 +1,16 @@
 "use client";
 
 import clsx from "clsx";
-import type { HTMLAttributes } from "react";
+import type { ChangeEventHandler, HTMLProps } from "react";
 import styles from "./index.module.css";
 
-type Props = HTMLAttributes<HTMLInputElement> & {
+type Props = HTMLProps<HTMLInputElement> & {
 	min?: number;
 	max?: number;
 	step?: number;
 	value?: number;
 	showSteps?: boolean;
+	onValueChange?: (value: number) => void;
 	className?: string;
 };
 
@@ -19,6 +20,7 @@ export const RangeSlider = ({
 	step = 1,
 	value = 0,
 	showSteps = true,
+	onValueChange,
 	className,
 	...rest
 }: Props) => {
@@ -26,8 +28,13 @@ export const RangeSlider = ({
 		"--step": `${(step / (max - min)) * 100}%`,
 	} as React.CSSProperties;
 
+	const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+		const value = Number.parseInt(e.currentTarget.value);
+		onValueChange?.(value);
+	};
+
 	return (
-		<div className={clsx(styles.container, className)}>
+		<label className={clsx(styles.container, className)}>
 			<input
 				{...rest}
 				type="range"
@@ -35,9 +42,10 @@ export const RangeSlider = ({
 				max={max.toString()}
 				step={step.toString()}
 				value={value.toString()}
+				onChange={handleChange}
 				className={styles.input}
 				style={showSteps ? stepCSSVariable : undefined}
 			/>
-		</div>
+		</label>
 	);
 };

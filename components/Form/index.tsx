@@ -1,6 +1,7 @@
 "use client";
 
 import { RangeSlider } from "@/components/RangeSlider";
+import { Textbox } from "@/components/Textbox";
 import { useConfigStore } from "@/hooks/useConfigStore";
 import clsx from "clsx";
 import styles from "./index.module.css";
@@ -28,9 +29,15 @@ export const Form = ({ className }: Props) => {
 						max={99}
 						value={age}
 						showSteps={false}
-						onChange={(e) => setAge(Number.parseInt(e.currentTarget.value))}
+						onValueChange={setAge}
 					/>
-					<div className={styles.value}>{age.toLocaleString()}</div>
+					<Textbox
+						maxLength={2}
+						min={18}
+						max={99}
+						value={age}
+						onValueChange={(v) => setAge(Number.parseInt(v))}
+					/>
 				</div>
 			</div>
 
@@ -39,19 +46,16 @@ export const Form = ({ className }: Props) => {
 				<div className={styles.label}>
 					<div className={styles.labelTitle}>Initial Balance</div>
 					<div className={styles.labelSubtitle}>
-						Starting at {age} years old
+						Starting at {age} year{age === 1 ? "" : "s"} old
 					</div>
 				</div>
 				<div className={styles.input}>
-					<RangeSlider
-						min={0}
-						max={10000}
-						step={100}
+					<Textbox
+						fill
+						maxLength={16}
+						min={1}
 						value={initialBalance}
-						showSteps={false}
-						onChange={(e) =>
-							setInitialBalance(Number.parseInt(e.currentTarget.value))
-						}
+						onValueChange={(v) => setInitialBalance(Number.parseInt(v))}
 					/>
 				</div>
 			</div>
