@@ -42,7 +42,7 @@
 	transform: translate(-50%, -50%);
 	border-radius: 8px;
 	overflow: hidden;
-	cursor: row-resize;
+	cursor: col-resize;
 	background-color: var(--color-background-100);
 
 	background-image: repeating-linear-gradient(
