@@ -53,7 +53,6 @@ export const Form = ({ className }: Props) => {
 							setInitialBalance(Number.parseInt(e.currentTarget.value))
 						}
 					/>
-					<div className={styles.value}>{initialBalance.toLocaleString()}</div>
 				</div>
 			</div>
 		</div>
