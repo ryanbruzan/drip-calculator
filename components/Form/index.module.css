@@ -62,3 +62,11 @@
 	font-size: 12px;
 	color: var(--color-foreground-50);
 }
+
+.smallTextbox {
+	width: 56px;
+}
+
+.largeTextbox {
+	width: 100%;
+}

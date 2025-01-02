@@ -37,6 +37,7 @@ export const Form = ({ className }: Props) => {
 						max={99}
 						value={age}
 						onValueChange={(v) => setAge(Number.parseInt(v) || 0)}
+						className={styles.smallTextbox}
 					/>
 				</div>
 			</div>
@@ -51,11 +52,11 @@ export const Form = ({ className }: Props) => {
 				</div>
 				<div className={styles.input}>
 					<Textbox
-						fill
 						maxLength={16}
 						min={1}
 						value={initialBalance}
 						onValueChange={(v) => setInitialBalance(Number.parseInt(v) || 0)}
+						className={styles.largeTextbox}
 					/>
 				</div>
 			</div>

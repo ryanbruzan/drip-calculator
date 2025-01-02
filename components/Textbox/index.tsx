@@ -3,14 +3,12 @@ import type { ChangeEventHandler, FocusEventHandler, HTMLProps } from "react";
 import styles from "./index.module.css";
 
 type Props = HTMLProps<HTMLInputElement> & {
-	fill?: boolean;
 	min?: number;
 	max?: number;
 	onValueChange?: (value: string) => void;
 };
 
 export const Textbox = ({
-	fill,
 	min,
 	max,
 	onValueChange,
@@ -40,14 +38,13 @@ export const Textbox = ({
 	};
 
 	return (
-		<div className={clsx(styles.container, { [styles.fill]: fill }, className)}>
+		<div className={clsx(styles.container, className)}>
 			<input
 				{...rest}
 				onBlur={handleBlur}
 				onChange={handleChange}
 				className={styles.textbox}
 			/>
-			<span className={clsx(styles.textbox, styles.sizer)}>{rest.value}</span>
 		</div>
 	);
 };
