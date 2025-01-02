@@ -44,6 +44,7 @@ export const Form = ({ className }: Props) => {
 						onValueChange={setAge}
 					/>
 					<Textbox
+						align="center"
 						min={18}
 						max={99}
 						maxLength={2}

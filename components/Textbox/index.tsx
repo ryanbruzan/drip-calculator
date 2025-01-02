@@ -9,6 +9,7 @@ import type {
 import styles from "./index.module.css";
 
 type Props = HTMLProps<HTMLInputElement> & {
+	align?: "left" | "center" | "right";
 	min?: number;
 	max?: number;
 	onValueChange?: (value: string) => void;
@@ -19,6 +20,7 @@ type Props = HTMLProps<HTMLInputElement> & {
 };
 
 export const Textbox = ({
+	align = "right",
 	min,
 	max,
 	onValueChange,
@@ -66,6 +68,7 @@ export const Textbox = ({
 				onBlur={handleBlur}
 				onChange={handleChange}
 				className={styles.textbox}
+				style={{ textAlign: align }}
 			/>
 			{(SuffixIcon || suffixChildren) && (
 				<div className={styles.suffix}>
