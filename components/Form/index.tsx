@@ -4,7 +4,7 @@ import { RangeSlider } from "@/components/RangeSlider";
 import { Textbox } from "@/components/Textbox";
 import { useConfigStore } from "@/hooks/useConfigStore";
 import clsx from "clsx";
-import { DollarSignIcon } from "lucide-react";
+import { DollarSignIcon, PercentIcon } from "lucide-react";
 import styles from "./index.module.css";
 
 type Props = {
@@ -12,6 +12,7 @@ type Props = {
 };
 
 export const Form = ({ className }: Props) => {
+	// Grab data from Zustand
 	const age = useConfigStore((state) => state.age);
 	const setAge = useConfigStore((state) => state.setAge);
 	const initialBalance = useConfigStore((state) => state.initialBalance);
@@ -25,6 +26,12 @@ export const Form = ({ className }: Props) => {
 	);
 	const setDailyContributionGrowthPerYear = useConfigStore(
 		(state) => state.setDailyContributionGrowthPerYear,
+	);
+	const annualIncreasePercentage = useConfigStore(
+		(state) => state.annualIncreasePercentage,
+	);
+	const setAnnualIncreasePercentage = useConfigStore(
+		(state) => state.setAnnualIncreasePercentage,
 	);
 
 	return (
@@ -104,6 +111,33 @@ export const Form = ({ className }: Props) => {
 						className={styles.largeTextbox}
 						PrefixIcon={DollarSignIcon}
 						suffixChildren="/year"
+					/>
+				</div>
+			</div>
+
+			{/* Stock Price Increase */}
+			<div className={styles.row}>
+				<div className={styles.label}>
+					<div className={styles.labelTitle}>Stock Price Increase</div>
+					<div className={styles.labelSubtitle}>Average % increase YoY</div>
+				</div>
+				<div className={styles.input}>
+					<RangeSlider
+						min={0}
+						max={100}
+						value={annualIncreasePercentage}
+						showSteps={false}
+						onValueChange={setAnnualIncreasePercentage}
+					/>
+					<Textbox
+						min={0}
+						maxLength={3}
+						value={annualIncreasePercentage}
+						onValueChange={(v) =>
+							setAnnualIncreasePercentage(Number.parseInt(v) || 0)
+						}
+						className={styles.smallTextbox}
+						SuffixIcon={PercentIcon}
 					/>
 				</div>
 			</div>
