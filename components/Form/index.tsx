@@ -15,6 +15,8 @@ export const Form = ({ className }: Props) => {
 	// Grab data from Zustand
 	const age = useConfigStore((state) => state.age);
 	const setAge = useConfigStore((state) => state.setAge);
+	const years = useConfigStore((state) => state.years);
+	const setYears = useConfigStore((state) => state.setYears);
 	const initialBalance = useConfigStore((state) => state.initialBalance);
 	const setInitialBalance = useConfigStore((state) => state.setInitialBalance);
 	const dailyContribution = useConfigStore((state) => state.dailyContribution);
@@ -32,6 +34,24 @@ export const Form = ({ className }: Props) => {
 	);
 	const setAnnualIncreasePercentage = useConfigStore(
 		(state) => state.setAnnualIncreasePercentage,
+	);
+	const annualDividendYieldPercentage = useConfigStore(
+		(state) => state.annualDividendYieldPercentage,
+	);
+	const setAnnualDividendYieldPercentage = useConfigStore(
+		(state) => state.setAnnualDividendYieldPercentage,
+	);
+	const annualTaxRatePercentage = useConfigStore(
+		(state) => state.annualTaxRatePercentage,
+	);
+	const setAnnualTaxRatePercentage = useConfigStore(
+		(state) => state.setAnnualTaxRatePercentage,
+	);
+	const annualSalaryYieldPercentage = useConfigStore(
+		(state) => state.annualSalaryYieldPercentage,
+	);
+	const setAnnualSalaryYieldPercentage = useConfigStore(
+		(state) => state.setAnnualSalaryYieldPercentage,
 	);
 
 	return (
@@ -57,6 +77,33 @@ export const Form = ({ className }: Props) => {
 						maxLength={2}
 						value={age}
 						onValueChange={(v) => setAge(Number.parseInt(v) || 0)}
+						className={styles.smallTextbox}
+					/>
+				</div>
+			</div>
+
+			{/* Years */}
+			<div className={styles.row}>
+				<div className={styles.label}>
+					<div className={styles.labelTitle}>Years in the Future</div>
+					<div className={styles.labelSubtitle}>
+						Investing till you're {age + years}
+					</div>
+				</div>
+				<div className={styles.input}>
+					<RangeSlider
+						min={0}
+						max={100}
+						value={years}
+						showSteps={false}
+						onValueChange={setYears}
+					/>
+					<Textbox
+						align="center"
+						min={0}
+						maxLength={3}
+						value={years}
+						onValueChange={(v) => setYears(Number.parseInt(v) || 0)}
 						className={styles.smallTextbox}
 					/>
 				</div>
@@ -95,7 +142,9 @@ export const Form = ({ className }: Props) => {
 						min={0}
 						maxLength={5}
 						value={dailyContribution}
-						onValueChange={(v) => setDailyContribution(Number.parseInt(v) || 0)}
+						onValueChange={(v) =>
+							setDailyContribution(Number.parseFloat(v) || 0)
+						}
 						className={styles.largeTextbox}
 						PrefixIcon={DollarSignIcon}
 						suffixChildren="/day"
@@ -106,7 +155,7 @@ export const Form = ({ className }: Props) => {
 						maxLength={5}
 						value={dailyContributionGrowthPerYear}
 						onValueChange={(v) =>
-							setDailyContributionGrowthPerYear(Number.parseInt(v) || 0)
+							setDailyContributionGrowthPerYear(Number.parseFloat(v) || 0)
 						}
 						className={styles.largeTextbox}
 						PrefixIcon={DollarSignIcon}
@@ -119,7 +168,7 @@ export const Form = ({ className }: Props) => {
 			<div className={styles.row}>
 				<div className={styles.label}>
 					<div className={styles.labelTitle}>Stock Price Increase</div>
-					<div className={styles.labelSubtitle}>Average % increase YoY</div>
+					<div className={styles.labelSubtitle}>Average annual increase</div>
 				</div>
 				<div className={styles.input}>
 					<RangeSlider
@@ -134,7 +183,90 @@ export const Form = ({ className }: Props) => {
 						maxLength={3}
 						value={annualIncreasePercentage}
 						onValueChange={(v) =>
-							setAnnualIncreasePercentage(Number.parseInt(v) || 0)
+							setAnnualIncreasePercentage(Number.parseFloat(v) || 0)
+						}
+						className={styles.smallTextbox}
+						SuffixIcon={PercentIcon}
+					/>
+				</div>
+			</div>
+
+			{/* Dividend Yield */}
+			<div className={styles.row}>
+				<div className={styles.label}>
+					<div className={styles.labelTitle}>Dividend Yield</div>
+					<div className={styles.labelSubtitle}>
+						Average annualized dividend
+					</div>
+				</div>
+				<div className={styles.input}>
+					<RangeSlider
+						min={0}
+						max={100}
+						value={annualDividendYieldPercentage}
+						showSteps={false}
+						onValueChange={setAnnualDividendYieldPercentage}
+					/>
+					<Textbox
+						min={0}
+						maxLength={3}
+						value={annualDividendYieldPercentage}
+						onValueChange={(v) =>
+							setAnnualDividendYieldPercentage(Number.parseFloat(v) || 0)
+						}
+						className={styles.smallTextbox}
+						SuffixIcon={PercentIcon}
+					/>
+				</div>
+			</div>
+
+			{/* Tax Rate */}
+			<div className={styles.row}>
+				<div className={styles.label}>
+					<div className={styles.labelTitle}>Tax Rate</div>
+					<div className={styles.labelSubtitle}>Average annual taxes</div>
+				</div>
+				<div className={styles.input}>
+					<RangeSlider
+						min={0}
+						max={100}
+						value={annualTaxRatePercentage}
+						showSteps={false}
+						onValueChange={setAnnualTaxRatePercentage}
+					/>
+					<Textbox
+						min={0}
+						maxLength={3}
+						value={annualTaxRatePercentage}
+						onValueChange={(v) =>
+							setAnnualTaxRatePercentage(Number.parseFloat(v) || 0)
+						}
+						className={styles.smallTextbox}
+						SuffixIcon={PercentIcon}
+					/>
+				</div>
+			</div>
+
+			{/* Salary Yield */}
+			<div className={styles.row}>
+				<div className={styles.label}>
+					<div className={styles.labelTitle}>Salary Yield</div>
+					<div className={styles.labelSubtitle}>% received long-term</div>
+				</div>
+				<div className={styles.input}>
+					<RangeSlider
+						min={0}
+						max={100}
+						value={annualSalaryYieldPercentage}
+						showSteps={false}
+						onValueChange={setAnnualSalaryYieldPercentage}
+					/>
+					<Textbox
+						min={0}
+						maxLength={3}
+						value={annualSalaryYieldPercentage}
+						onValueChange={(v) =>
+							setAnnualSalaryYieldPercentage(Number.parseFloat(v) || 0)
 						}
 						className={styles.smallTextbox}
 						SuffixIcon={PercentIcon}
