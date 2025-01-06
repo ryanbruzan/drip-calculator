@@ -29,7 +29,7 @@ export const useConfigStore = create<ConfigStore>()(
 	persist(
 		(set, get) => ({
 			age: 25,
-			years: 40,
+			years: 50,
 			initialBalance: 5000,
 			dailyContribution: 5,
 			dailyContributionGrowthPerYear: 0,
