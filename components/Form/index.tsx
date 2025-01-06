@@ -71,13 +71,13 @@ export const Form = ({ className }: Props) => {
 						onValueChange={setAge}
 					/>
 					<Textbox
-						align="center"
 						min={18}
 						max={99}
 						maxLength={2}
 						value={age}
 						onValueChange={(v) => setAge(Number.parseInt(v) || 0)}
 						className={styles.smallTextbox}
+						suffixChildren="yrs"
 					/>
 				</div>
 			</div>
@@ -99,12 +99,12 @@ export const Form = ({ className }: Props) => {
 						onValueChange={setYears}
 					/>
 					<Textbox
-						align="center"
 						min={0}
 						maxLength={3}
 						value={years}
 						onValueChange={(v) => setYears(Number.parseInt(v) || 0)}
 						className={styles.smallTextbox}
+						suffixChildren="yrs"
 					/>
 				</div>
 			</div>

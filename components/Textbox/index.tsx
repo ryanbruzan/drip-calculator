@@ -20,7 +20,7 @@ type Props = HTMLProps<HTMLInputElement> & {
 };
 
 export const Textbox = ({
-	align = "right",
+	align = "left",
 	min,
 	max,
 	onValueChange,
