@@ -71,13 +71,14 @@ export const Form = ({ className }: Props) => {
 						onValueChange={setAge}
 					/>
 					<Textbox
+						type="number"
 						min={18}
 						max={99}
 						maxLength={2}
 						value={age}
 						onValueChange={(v) => setAge(Number.parseInt(v) || 0)}
 						className={styles.smallTextbox}
-						suffixChildren="yrs"
+						suffixChildren="y/o"
 					/>
 				</div>
 			</div>
@@ -99,6 +100,7 @@ export const Form = ({ className }: Props) => {
 						onValueChange={setYears}
 					/>
 					<Textbox
+						type="number"
 						min={0}
 						maxLength={3}
 						value={years}
@@ -119,6 +121,7 @@ export const Form = ({ className }: Props) => {
 				</div>
 				<div className={styles.input}>
 					<Textbox
+						type="number"
 						min={1}
 						maxLength={9}
 						value={initialBalance}
@@ -139,6 +142,7 @@ export const Form = ({ className }: Props) => {
 				</div>
 				<div className={styles.input}>
 					<Textbox
+						type="number"
 						min={0}
 						maxLength={5}
 						value={dailyContribution}
@@ -151,6 +155,7 @@ export const Form = ({ className }: Props) => {
 					/>
 					+
 					<Textbox
+						type="number"
 						min={0}
 						maxLength={5}
 						value={dailyContributionGrowthPerYear}
@@ -179,6 +184,7 @@ export const Form = ({ className }: Props) => {
 						onValueChange={setAnnualIncreasePercentage}
 					/>
 					<Textbox
+						type="number"
 						min={0}
 						maxLength={3}
 						value={annualIncreasePercentage}
@@ -208,6 +214,7 @@ export const Form = ({ className }: Props) => {
 						onValueChange={setAnnualDividendYieldPercentage}
 					/>
 					<Textbox
+						type="number"
 						min={0}
 						maxLength={3}
 						value={annualDividendYieldPercentage}
@@ -235,6 +242,7 @@ export const Form = ({ className }: Props) => {
 						onValueChange={setAnnualTaxRatePercentage}
 					/>
 					<Textbox
+						type="number"
 						min={0}
 						maxLength={3}
 						value={annualTaxRatePercentage}
@@ -262,6 +270,7 @@ export const Form = ({ className }: Props) => {
 						onValueChange={setAnnualSalaryYieldPercentage}
 					/>
 					<Textbox
+						type="number"
 						min={0}
 						maxLength={3}
 						value={annualSalaryYieldPercentage}

@@ -34,6 +34,18 @@
 	background-color: transparent;
 	color: inherit;
 	text-align: right;
+
+	/* Chrome, Safari, Edge, Opera */
+	&::-webkit-outer-spin-button,
+	&::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+
+	/* Firefox */
+	&[type="number"] {
+		-moz-appearance: textfield;
+	}
 }
 
 .prefix,
