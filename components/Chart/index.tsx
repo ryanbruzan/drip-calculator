@@ -23,8 +23,8 @@ export const Chart = ({ className }: Props) => {
 
 	return (
 		<div className={clsx(styles.container, className)}>
-			<div className={styles.chart}>
-				<ResponsiveContainer>
+			<div className={styles.responsiveContainer}>
+				<ResponsiveContainer width="100%" height="100%">
 					<ComposedChart data={data}>
 						<Line
 							dot={false}
@@ -64,6 +64,8 @@ export const Chart = ({ className }: Props) => {
 							strokeDasharray="3 3"
 						/>
 						<Tooltip
+							active={true}
+							defaultIndex={data.length - 1}
 							cursor={{ stroke: "var(--color-foreground-100)" }}
 							position={{ x: 0, y: 0 }}
 							content={ChartTooltip}

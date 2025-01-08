@@ -1,5 +1,5 @@
 .tooltip {
-	width: 320px;
+	width: 384px;
 	padding: 8px 16px;
 	background: var(--color-background-100);
 	backdrop-filter: blur(2px);

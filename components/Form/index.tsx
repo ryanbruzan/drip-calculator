@@ -93,7 +93,7 @@ export const Form = ({ className }: Props) => {
 				</div>
 				<div className={styles.input}>
 					<RangeSlider
-						min={0}
+						min={1}
 						max={100}
 						value={years}
 						showSteps={false}
@@ -101,7 +101,7 @@ export const Form = ({ className }: Props) => {
 					/>
 					<Textbox
 						type="number"
-						min={0}
+						min={1}
 						maxLength={3}
 						value={years}
 						onValueChange={(v) => setYears(Number.parseInt(v) || 0)}
