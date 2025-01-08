@@ -4,14 +4,14 @@ import { useMemo } from "react";
 export type AggregateYear = {
 	year: number;
 	age: number;
-	balance: number;
+	startBalance: number;
 	contributions: number;
 	growth: number;
 	growthCumulative: number;
 	divYield: number;
 	grossDiv: number;
 	netDiv: number;
-	end: number;
+	endBalance: number;
 	salary: number;
 };
 
@@ -24,8 +24,8 @@ export const useAggregateData = () => {
 		dailyContributionGrowthPerYear,
 		annualIncreasePercentage,
 		annualDividendYieldPercentage,
-		taxRatePercentage,
-		annualSalaryYield,
+		annualTaxRatePercentage,
+		annualSalaryYieldPercentage,
 		years,
 	} = useConfigStore((state) => state);
 
@@ -39,24 +39,25 @@ export const useAggregateData = () => {
 
 			current.year = i + 1;
 			current.age = previous?.age ? previous.age + 1 : age;
-			current.balance = previous?.end || initialBalance;
+			current.startBalance = previous?.endBalance || initialBalance;
 			current.contributions =
 				dailyContribution * 252 + dailyContributionGrowthPerYear * i * 252;
-			current.growth = current.balance * (annualIncreasePercentage / 100);
+			current.growth = current.startBalance * (annualIncreasePercentage / 100);
 			current.growthCumulative = previous?.growth
 				? previous.growthCumulative + current.growth
 				: current.growth;
 			current.grossDiv =
-				current.balance * (annualDividendYieldPercentage / 100);
-			current.netDiv = current.grossDiv * (1 - taxRatePercentage / 100);
-			current.end =
-				current.balance +
+				current.startBalance * (annualDividendYieldPercentage / 100);
+			current.netDiv = current.grossDiv * (1 - annualTaxRatePercentage / 100);
+			current.endBalance =
+				current.startBalance +
 				current.contributions +
 				current.growth +
 				current.netDiv;
 			current.salary =
-				(current.end - current.growthCumulative * (taxRatePercentage / 100)) *
-				(annualSalaryYield / 100);
+				(current.endBalance -
+					current.growthCumulative * (annualTaxRatePercentage / 100)) *
+				(annualSalaryYieldPercentage / 100);
 
 			array.push(current as AggregateYear);
 		}
@@ -69,8 +70,8 @@ export const useAggregateData = () => {
 		dailyContributionGrowthPerYear,
 		annualIncreasePercentage,
 		annualDividendYieldPercentage,
-		taxRatePercentage,
-		annualSalaryYield,
+		annualTaxRatePercentage,
+		annualSalaryYieldPercentage,
 		years,
 	]);
 

@@ -20,12 +20,12 @@
 	}
 
 	&::before {
-		content: '-';
+		content: "-";
 		left: 0;
 	}
 
 	&::after {
-		content: '+';
+		content: "+";
 		right: 0;
 	}
 }
@@ -62,5 +62,13 @@
 		border: none;
 		width: 0;
 		box-shadow: -100dvw 0 0 100dvw var(--color-foreground-10);
+	}
+
+	&:hover::-webkit-slider-thumb {
+		box-shadow: -100dvw 0 0 100dvw var(--color-foreground-20);
+	}
+
+	&:hover::-moz-range-thumb {
+		box-shadow: -100dvw 0 0 100dvw var(--color-foreground-20);
 	}
 }
