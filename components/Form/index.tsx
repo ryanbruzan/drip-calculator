@@ -65,7 +65,7 @@ export const Form = ({ className }: Props) => {
 				<div className={styles.input}>
 					<RangeSlider
 						min={18}
-						max={99}
+						max={75}
 						value={age}
 						showSteps={false}
 						onValueChange={setAge}
@@ -94,7 +94,7 @@ export const Form = ({ className }: Props) => {
 				<div className={styles.input}>
 					<RangeSlider
 						min={1}
-						max={100}
+						max={75}
 						value={years}
 						showSteps={false}
 						onValueChange={setYears}

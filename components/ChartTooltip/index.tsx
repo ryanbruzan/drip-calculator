@@ -18,17 +18,17 @@ export const ChartTooltip = ({ active, payload }: Props) => {
 			<div className={styles.line}>
 				<div className={styles.label}>Y{point.year} Start Balance</div>
 				<div className={styles.value}>
-					{formatMoney(point.startBalance)} &bull; {point.age}yo
+					{formatMoney(point.startBalance)} @ {point.age}yo
 				</div>
 			</div>
 			<div className={styles.line}>
 				<div className={styles.label}>Y{point.year} End Balance</div>
 				<div className={styles.value}>
-					{formatMoney(point.endBalance)} &bull; {point.age + 1}yo
+					{formatMoney(point.endBalance)} @ {point.age + 1}yo
 				</div>
 			</div>
 			<div className={styles.line}>
-				<div className={styles.label}>Y{point.year} Salary</div>
+				<div className={styles.label}>Y{point.year} EOY Salary</div>
 				<div className={styles.value}>{formatMoney(point.salary)}/yr</div>
 			</div>
 		</div>
