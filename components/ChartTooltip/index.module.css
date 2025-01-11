@@ -1,5 +1,6 @@
 .tooltip {
 	width: 30dvw;
+	max-width: 400px;
 	padding: 8px 16px;
 	background: var(--color-background-100);
 	backdrop-filter: blur(2px);
@@ -24,4 +25,10 @@
 
 .value {
 	font-family: monospace;
+}
+
+@media all and (width <= 960px) {
+	.tooltip {
+		width: calc(100dvw - 64px);
+	}
 }

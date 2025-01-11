@@ -11,6 +11,7 @@
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
+	flex-wrap: wrap;
 	padding: 16px;
 	gap: 16px;
 }
@@ -51,8 +52,15 @@
 
 .smallTextbox {
 	width: 25%;
+	min-width: 96px;
 }
 
 .largeTextbox {
 	width: 100%;
+}
+
+@media all and (width <= 640px) {
+	.label {
+		flex: 0 0 100%;
+	}
 }
